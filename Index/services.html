@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="shortcut icon" type="x-icon" href="https://image2url.com/images/1765024104633-aa770e32-95f0-4a9b-9f1e-3b296f8f7309.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services</title>
+
+  <!-- ========================= GLOBAL CSS ========================= -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      --bg: #060b18;
+      --panel: rgba(255,255,255,0.05);
+      --glass: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.12);
+      --accentA: #4dd0ff;
+      --accentB: #9c4dff;
+      --text-muted: #b8d8ff;
+      --neon: #00eaff;
+    }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+    }
+
+    /* ================= NAVBAR (SAME AS YOUR ORIGINAL) ================= */
+    nav {
+      width: 100%;
+      padding: 18px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1200;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, var(--accentA), var(--accentB));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    ul.nav {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    ul.nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .98rem;
+      position: relative;
+      padding: 6px 0;
+      transition: .25s;
+    }
+
+    ul.nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accentA), var(--accentB));
+      transition: .28s;
+      border-radius: 6px;
+    }
+
+    ul.nav a:hover { color: #fff; }
+    ul.nav a:hover::after { width: 100%; }
+
+    /* Mobile menu */
+    .menu-btn {
+      display: none;
+      width: 36px;
+      height: 26px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-btn span {
+      width: 100%;
+      height: 3px;
+      background: var(--accentA);
+      border-radius: 3px;
+      transition: 0.25s;
+    }
+
+    @media(max-width: 768px) {
+      .menu-btn { display: flex; }
+      ul.nav {
+        position: fixed;
+        top: 0;
+        right: -110%;
+        width: 250px;
+        height: 100%;
+        background: var(--panel);
+        backdrop-filter: blur(20px);
+        padding-top: 120px;
+        padding-left: 24px;
+        flex-direction: column;
+        gap: 22px;
+        transition: .4s;
+      }
+      ul.nav.active { right: 0; }
+    }
+
+    /* ================= SERVICES HERO ================= */
+    .services-hero {
+      margin-top: 120px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .services-hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, var(--accentA), var(--accentB));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 25px #4dd0ff66;
+    }
+
+    .services-hero p {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      opacity: .85;
+    }
+
+    /* ================= SERVICES GRID (PREMIUM) ================= */
+    .services-section {
+      padding: 70px 10%;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: left;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 25px rgba(0, 234, 255, 0.1);
+      transition: .4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0, 234, 255, 0.4);
+      border-color: var(--neon);
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: var(--neon);
+      text-shadow: 0 0 15px var(--neon);
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--accentA);
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      opacity: .8;
+      color: #dff5ff;
+      line-height: 1.6;
+    }
+
+    /* ================= PRICING ================= */
+    .pricing-section {
+      margin-top: 90px;
+      padding-bottom: 90px;
+      text-align: center;
+    }
+
+    .pricing-title {
+      font-size: 2.4rem;
+      color: var(--neon);
+      text-shadow: 0 0 25px var(--neon);
+    }
+
+    .pricing-grid {
+      margin-top: 40px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      width: 280px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 20px #00eaff33;
+      transition: .4s;
+    }
+
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 35px #00eaff;
+      border-color: var(--neon);
+    }
+
+    .price-card h4 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      color: var(--accentA);
+    }
+
+    .price-card ul {
+      text-align: left;
+      margin-top: 15px;
+      color: #d6eeff;
+      line-height: 1.6;
+    }
+
+    .price-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      background: var(--neon);
+      color: #06101c;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .price-btn:hover {
+      background: #0099ff;
+      box-shadow: 0 0 20px var(--neon);
+    }
+
+    /* ========== FOOTER CSS ========== */
+    /* ========== FOOTER CSS ========== */
+    /* ========== FOOTER CSS ========== */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 50px 25px;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+/* Brand Logo */
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #4dd0ff, #9c4dff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.footer-tagline {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Column Headings */
+.footer-col h4 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4dd0ff;
+}
+
+/* Links */
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+}
+
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  opacity: 1;
+  color: #4dd0ff;
+}
+
+/* Social icons */
+.footer-socials {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+}
+
+.social-icon {
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #4dd0ff;
+  transform: translateY(-3px);
+}
+
+/* Bottom small text */
+.footer-bottom {
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  border-top: 1px solid #333;
+}
+
+          /* ========== FOOTER CSS Ends Here ========== */
+          /* ========== FOOTER CSS Ends Here========== */
+          /* ========== FOOTER CSS Ends Here========== */
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav>
+    <div class="logo"><a href="Home.html" style="text-decoration:none;color:inherit;">Krish</a></div>
+    <ul class="nav" id="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="project.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-btn" id="menu-btn">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <div class="services-hero">
+    <h1>What I Can Do For You</h1>
+    <p>Crafting premium, modern and futuristic digital experiences.</p>
+  </div>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="services-section">
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Modern Websites</h3>
+        <p>Responsive, aesthetic and futuristic layouts optimized for performance.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>E-Commerce Stores</h3>
+        <p>Full online stores with payment systems and advanced product pages.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Portfolio Websites</h3>
+        <p>Smooth animations and strong identity-focused personal branding.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Business Websites</h3>
+        <p>Professional websites for agencies, teams and companies.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3>SEO & Optimization</h3>
+        <p>Boost loading speed, ranking and overall search performance.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧩</div>
+        <h3>Custom Dashboards</h3>
+        <p>Admin panels, login systems and custom interactive web components.</p>
+      </div>
+
+    </div>
+  </section>
+
+  
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
+
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+                        <!-- footer->
+
+<!- ========== FOOTER START ========== -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Logo + Tagline -->
+    <div class="footer-col">
+      <div class="footer-logo">KRISH</div>
+      <p class="footer-tagline">Building Futuristic Web Experiences</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="Home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html"><i class="fa-solid fa-suitcase"></i> Services</a></li>
+        <li><a href="project.html"><i class="fa-solid fa-file"></i> Projects</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 9412068188</p>
+      <p>📧 <a href="mailto:hanjun4520@gmail.com">hanjun4520@gmail.com</a></p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="footer-col">
+      <h4>Follow Me</h4>
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Krish — All Rights Reserved
+  </div>
+</footer>
+<!-- ========== FOOTER END ========== -->
+
+
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="shortcut icon" type="x-icon" href="https://image2url.com/images/1765024104633-aa770e32-95f0-4a9b-9f1e-3b296f8f7309.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Krish – Home</title>
+
+  <style>
+    /* =========================================================
+       BASE THEME / COLORS (Same as Project page)
+       ========================================================= */
+    *{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
+    :root{
+      --bg:#0a0f1f;
+      --panel:rgba(255,255,255,0.04);
+      --muted:#b5cfff;
+      --accentA:#4dd0ff;
+      --accentB:#9c4dff;
+      --glass-border:rgba(255,255,255,0.08);
+    }
+    html,body{
+      height:100%;
+      background:var(--bg);
+      color:#e8f0ff;
+      -webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
+    }
+
+
+    /* =========================================================
+       NAVBAR (same as your project-style)
+       ========================================================= */
+    nav{
+      width:100%;
+      padding:18px 36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(12px);
+      background:var(--panel);
+      border-bottom:1px solid var(--glass-border);
+      position:fixed;
+      top:0;left:0;
+      z-index:1200;
+    }
+    .logo{
+      font-size:1.4rem;
+      font-weight:700;
+      letter-spacing:2px;
+      background:linear-gradient(90deg,var(--accentA),var(--accentB));
+      background-clip:text;
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    ul.nav{
+      list-style:none;
+      display:flex;
+      gap:28px;
+      align-items:center;
+    }
+    ul.nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.98rem;
+      position:relative;
+      padding:6px 0;
+      transition:.25s;
+    }
+    ul.nav a::after{
+      content:"";
+      position:absolute;
+      bottom:-8px;left:0;
+      width:0;height:2px;
+      background:linear-gradient(90deg,var(--accentA),var(--accentB));
+      transition:.28s;
+      border-radius:6px;
+    }
+    ul.nav a:hover{color:#fff}
+    ul.nav a:hover::after{width:100%}
+
+    .menu-btn{
+      display:none;
+      width:36px;height:26px;
+      cursor:pointer;
+      flex-direction:column;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .menu-btn span{
+      width:100%;height:3px;
+      border-radius:3px;
+      background:var(--accentA);
+      transition:transform .28s,opacity .28s;
+    }
+    .menu-btn.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0;transform:scaleX(.2)}
+    .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+    @media (max-width:768px){
+      .menu-btn{display:flex}
+      ul.nav{
+        position:fixed;
+        right:-110%;
+        top:0;
+        height:100%;
+        width:260px;
+        background:var(--panel);
+        backdrop-filter:blur(20px);
+        flex-direction:column;
+        align-items:flex-start;
+        padding-top:120px;
+        padding-left:24px;
+        gap:22px;
+        transition:right .38s cubic-bezier(.2,.9,.2,1);
+        z-index:1100;
+      }
+      ul.nav.active{right:0}
+    }
+
+
+    /* =========================================================
+       MAIN PAGE LAYOUT
+       ========================================================= */
+    main{
+      padding-top:120px;
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+
+    /* =========================================================
+       HERO / LANDING SECTION
+       ========================================================= */
+    /* ---------- HERO CSS HERE ---------- */
+    /* -----------------------------------------
+   Base Theme
+----------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+
+:root {
+  --bg:#0a0f1f;
+  --panel:rgba(255,255,255,0.04);
+  --muted:#b5cfff;
+  --accentA:#4dd0ff;
+  --accentB:#9c4dff;
+  --glass-border:rgba(255,255,255,0.08);
+}
+
+body {
+  background: var(--bg);
+  color: #eaf2ff;
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------
+   NAVBAR (same as your other pages)
+----------------------------------------- */
+nav{
+  width:100%;
+  padding:18px 36px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(12px);
+  background:var(--panel);
+  border-bottom:1px solid var(--glass-border);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1200;
+}
+
+.logo{
+  font-size:1.4rem;
+  font-weight:700;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,var(--accentA),var(--accentB));
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+ul.nav{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+ul.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.98rem;
+  position:relative;
+  padding:6px 0;
+  transition:.25s;
+}
+
+ul.nav a::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;left:0;
+  width:0;height:2px;
+  background:linear-gradient(90deg,var(--accentA),var(--accentB));
+  transition:.28s;
+  border-radius:6px;
+}
+ul.nav a:hover{color:#fff}
+ul.nav a:hover::after{width:100%}
+
+.menu-btn{
+  display:none;
+  width:36px;height:26px;
+  cursor:pointer;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+}
+.menu-btn span{
+  width:100%;height:3px;
+  border-radius:3px;
+  background:var(--accentA);
+  transition:transform .28s,opacity .28s;
+}
+@media (max-width:768px){
+  .menu-btn{display:flex}
+  ul.nav{
+    position:fixed;
+    right:-110%;
+    top:0;height:100%;width:260px;
+    background:var(--panel);
+    backdrop-filter:blur(20px);
+    flex-direction:column;
+    align-items:flex-start;
+    padding-top:120px;padding-left:24px;
+    gap:22px;
+    transition:right .38s cubic-bezier(.2,.9,.2,1);
+  }
+  ul.nav.active{right:0}
+}
+
+/* -----------------------------------------
+   HERO SECTION
+----------------------------------------- */
+
+/* ---------- HERO (image left + text right) ---------- */
+#hero {
+  padding: 120px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* left: circular photo container */
+#hero-image {
+  flex: 0 0 320px; /* keeps image area fixed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 30px rgba(77,208,255,0.12), 0 0 45px rgba(156,77,255,0.07);
+  transition: transform .35s ease, box-shadow .35s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+/* subtle hover */
+#hero-image img:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(77,208,255,0.18), 0 0 60px rgba(156,77,255,0.12);
+}
+
+/* right: text block */
+#hero-text {
+  flex: 1 1 600px;
+}
+#hero-text h1 {
+  font-size: 2.8rem;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg,var(--accentA),var(--accentB));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 18px rgba(77,208,255,0.12);
+}
+#hero-text h1 span { /* accent line for the span if you want */
+  display: inline-block;
+}
+#hero-text p {
+  color: var(--muted);
+  font-size: 1.03rem;
+  max-width: 680px;
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+/* action buttons */
+#hero-actions { margin-top: 22px; display:flex; gap:14px; }
+
+/* RESPONSIVE: stack on small screens, image on top */
+@media (max-width: 990px) {
+  #hero { flex-direction: column-reverse; padding: 80px 24px; text-align: center; }
+  #hero-image { order: -1; margin-bottom: 18px; }
+  #hero-image img { width: 220px; height: 220px; }
+  #hero-text h1 { font-size: 2rem; }
+  #hero-text p { margin-left: auto; margin-right: auto; }
+  #hero-actions { justify-content: center; }
+}
+
+.hero {
+  height: 100vh;
+  padding: 160px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+  z-index: 3;
+}
+
+.title {
+  font-size: 3.4rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #eaf7ff;
+  text-shadow: 0 0 16px rgba(77,208,255,0.15);
+}
+
+.title span {
+  background: linear-gradient(90deg, var(--accentA), var(--accentB));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin-top: 18px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA Buttons */
+.cta {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-primary {
+  padding: 12px 26px;
+  border-radius: 28px;
+  background: linear-gradient(90deg, var(--accentA), var(--accentB));
+  color: #041123;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(77,208,255,0.25);
+}
+
+.btn-ghost {
+  padding: 12px 26px;
+  border-radius: 28px;
+  border: 1px solid var(--glass-border);
+  color: var(--muted);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+
+/* -----------------------------------------
+   Background Glow Effects
+----------------------------------------- */
+.glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 1;
+}
+
+.glow1 {
+  width: 420px;
+  height: 420px;
+  background: rgba(77,208,255,0.22);
+  top: 10%;
+  left: 5%;
+}
+
+.glow2 {
+  width: 360px;
+  height: 360px;
+  background: rgba(156,77,255,0.25);
+  bottom: 10%;
+  right: 8%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { padding: 160px 20px; }
+  .title { font-size: 2.4rem; }
+}
+
+
+
+    /* =========================================================
+       SERVICES SECTION
+       ========================================================= */
+    /* ---------- Services CSS ---------- */
+    #services{
+      padding:100px 40px;
+    }
+    .section-title{
+      font-size:2.4rem;
+      margin-bottom:20px;
+      text-shadow:0 0 10px rgba(77,208,255,0.12);
+    }
+    .section-sub{
+      color:var(--muted);
+      font-size:1rem;
+      margin-bottom:50px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+      gap:28px;
+    }
+    .service-card{
+      padding:28px;
+      background:var(--panel);
+      border:1px solid var(--glass-border);
+      border-radius:14px;
+      backdrop-filter:blur(10px);
+      transition:.3s;
+    }
+    .service-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 14px 40px rgba(77,208,255,0.12);
+    }
+    .service-card h3{
+      font-size:1.3rem;
+      margin-bottom:10px;
+      color:var(--accentA);
+    }
+    .service-card p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:.95rem;
+    }
+
+
+    /* =========================================================
+       PROJECTS SECTION
+       (Using EXACT CSS from your given project page)
+       ========================================================= */
+    /* ---------- Project CSS Here ---------- */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:30px;
+    }
+    .project{
+      display:flex;
+      gap:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      border:1px solid var(--glass-border);
+      overflow:hidden;
+      backdrop-filter:blur(8px);
+      box-shadow:0 8px 40px rgba(77,208,255,0.04);
+      transition:.32s;
+    }
+    .project:hover{
+      transform:translateY(-10px);
+      box-shadow:0 18px 60px rgba(77,208,255,0.12);
+    }
+    .project .preview{
+      width:52%;
+      min-width:300px;
+      max-height:260px;
+      background:#061028;
+      overflow:hidden;
+    }
+    .project .preview img{
+      width:100%;height:100%;object-fit:cover;
+    }
+    .project .meta{
+      padding:26px;
+      display:flex;flex-direction:column;
+      gap:12px;
+      width:48%;
+    }
+    .meta h3{font-size:1.4rem}
+    .meta p{color:var(--muted);line-height:1.6}
+
+    @media(max-width:1000px){
+      .projects-grid{grid-template-columns:1fr}
+      .project{flex-direction:column}
+      .project .preview{width:100%;height:320px}
+      .project .meta{width:100%}
+    }
+
+
+    /* =========================================================
+       CONTACT SECTION
+       ========================================================= */
+    /* ---------- Contact CSS ---------- */
+    #contact{
+      padding:120px 40px;
+    }
+    .contact-box{
+      background:var(--panel);
+      border:1px solid var(--glass-border);
+      backdrop-filter:blur(12px);
+      padding:40px;
+      border-radius:14px;
+      max-width:600px;
+    }
+    #contact input,#contact textarea{
+      width:100%;
+      padding:12px 14px;
+      margin-top:12px;
+      border-radius:10px;
+      border:1px solid var(--glass-border);
+      background:rgba(255,255,255,0.03);
+      color:#fff;
+    }
+    #contact textarea{height:130px;resize:none}
+    #contact button{
+      margin-top:20px;
+      padding:12px 22px;
+      border:none;
+      background:linear-gradient(90deg,var(--accentA),var(--accentB));
+      border-radius:26px;
+      font-weight:700;
+    }
+    /* ========== FOOTER CSS ========== */
+    /* ========== FOOTER CSS ========== */
+    /* ========== FOOTER CSS ========== */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 50px 25px;
+  margin-top: 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+/* Brand Logo */
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #4dd0ff, #9c4dff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.footer-tagline {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Column Headings */
+.footer-col h4 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4dd0ff;
+}
+
+/* Links */
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+}
+
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  opacity: 1;
+  color: #4dd0ff;
+}
+
+/* Social icons */
+.footer-socials {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+}
+
+.social-icon {
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #4dd0ff;
+  transform: translateY(-3px);
+}
+
+/* Bottom small text */
+.footer-bottom {
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  border-top: 1px solid #333;
+}
+
+          /* ========== FOOTER CSS Ends Here ========== */
+          /* ========== FOOTER CSS Ends Here========== */
+          /* ========== FOOTER CSS Ends Here========== */
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVIGATION BAR
+       ========================================================= -->
+  <nav>
+    <div class="logo"><a href="Home.html">Krish</a></div>
+
+    <ul class="nav" id="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="project.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-btn" id="menu-btn"><span></span><span></span><span></span></div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO / LANDING SECTION
+       ========================================================= -->
+  <!-- Landing Section -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krish — Futuristic Landing</title>
+  <link rel="stylesheet" href="landing.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo"><a href="Home.html" style="text-decoration:none;color:inherit;">Krish</a></div>
+
+    <ul class="nav" id="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="project.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-btn" id="menu-btn">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <!-- Hero Image -->
+<!-- ========== HERO / LANDING SECTION (REPLACE EXISTING HERO) ========== -->
+
+<section id="hero">
+  <!-- left: circular photo -->
+  <div id="hero-image" aria-hidden="true">
+    <img src="https://image2url.com/images/1765024104633-aa770e32-95f0-4a9b-9f1e-3b296f8f7309.png" alt="Krish portrait">
+  </div>
+
+  <!-- right: hero text -->
+  <div id="hero-text">
+    <h1>Building Futuristic<br><span>Web Experiences</span></h1>
+    <p>I create modern, fast and aesthetic websites for businesses, creators and startups — with a futuristic UI touch.</p>
+    <div id="hero-actions">
+      <a class="btn-primary" href="#services">Explore Services</a>
+      <a class="btn-ghost" href="#projects">View Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== END HERO ========== -->
+
+
+    <!-- Background Glow Elements -->
+    <div class="glow-circle glow1"></div>
+    <div class="glow-circle glow2"></div>
+  </section>
+
+</body>
+</html>
+
+
+
+  <!-- =========================================================
+       SERVICES SECTION
+       ========================================================= -->
+  <!-- Services Code -->
+  <section id="services">
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">Everything you need to go online with style and performance.</p>
+
+    <div class="services-grid">
+      <div class="service-card"><h3>Modern Websites</h3><p>Futuristic layouts and stunning motion effects.</p></div>
+      <div class="service-card"><h3>E-Commerce Stores</h3><p>Full stores with payments, dashboards & product pages.</p></div>
+      <div class="service-card"><h3>Portfolios</h3><p>Premium personal branding websites.</p></div>
+      <div class="service-card"><h3>Business Websites</h3><p>High-speed, professional websites for any company.</p></div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       PROJECTS SECTION
+       ========================================================= -->
+  <!-- Project Code -->
+  <section id="projects" style="padding:100px 40px;">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Selected works I built recently.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project">
+        <div class="preview">
+          <img src="your-img1.jpg">
+        </div>
+        <div class="meta">
+          <h3>E-Commerce Platform</h3>
+          <p>Fully responsive online store with checkout, dashboard & smooth UI.</p>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project">
+        <div class="preview">
+          <img src="your-img2.jpg">
+        </div>
+        <div class="meta">
+          <h3>Music Streaming Website</h3>
+          <p>Minimal music player UI with playlists & dark futuristic design.</p>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project">
+        <div class="preview">
+          <img src="your-img3.jpg">
+        </div>
+        <div class="meta">
+          <h3>Portfolio + Dashboard</h3>
+          <p>Animated personal brand website with login system & custom CMS.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       CONTACT SECTION
+       ========================================================= -->
+  <!-- Contact Code -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="section-sub">Let's work on your dream website together.</p>
+
+    <div class="contact-box">
+      <form>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email Address">
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       MOBILE NAV SCRIPT
+       ========================================================= -->
+  <script>
+    const menuBtn=document.getElementById("menu-btn");
+    const navLinks=document.getElementById("nav-links");
+
+    function toggleMenu(){
+      navLinks.classList.toggle("active");
+      menuBtn.classList.toggle("open");
+    }
+    menuBtn.addEventListener("click",toggleMenu);
+
+    document.querySelectorAll("#nav-links a").forEach(a=>{
+      a.addEventListener("click",()=>{if(navLinks.classList.contains("active"))toggleMenu();});
+    });
+  </script>
+
+                        <!-- footer->
+
+<!- ========== FOOTER START ========== -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Logo + Tagline -->
+    <div class="footer-col">
+      <div class="footer-logo">KRISH</div>
+      <p class="footer-tagline">Building Futuristic Web Experiences</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="Home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="services.html"><i class="fa-solid fa-suitcase"></i> Services</a></li>
+        <li><a href="project.html"><i class="fa-solid fa-file"></i> Projects</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-phone"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📞 +91 9412068188</p>
+      <p>📧 <a href="mailto:hanjun4520@gmail.com">hanjun4520@gmail.com</a></p>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="footer-col">
+      <h4>Follow Me</h4>
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Krish — All Rights Reserved
+  </div>
+</footer>
+<!-- ========== FOOTER END ========== -->
+
+
+</body>
+</html>
